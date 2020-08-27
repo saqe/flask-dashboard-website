@@ -1,13 +1,11 @@
 from flask import Flask
+import json
+
 app = Flask(__name__)
 
-@app.route('/hello')
-def hello_name():
-   return 'Hello world'
-
-@app.route('/')
+@app.route('/',methods=['GET'])
 def wellcome():
-   return 'Hello world'
+   return {'success':True},200,{'ContentType':'application/json'}
 
 if __name__ == '__main__':
-   app.run(debug = True)
+   app.run()
