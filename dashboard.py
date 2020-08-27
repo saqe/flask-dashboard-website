@@ -35,29 +35,35 @@ def get_data_from_db():
    data={}
    data['total_ads']=recordsCollection.count_documents({'profit_average':{'$gt':999}})
    data['total_confidentials']=recordsCollection.count_documents({'property_name':'CONFIDENTIAL'})
-   data['items']=[]
-   for item in recordsCollection.find({'profit_average':{'$gt':999}}):
-      dd={
-         'id':item['id'],
-         'name':item['title'],
-         'price':item['price'],
-         'bids':item['bid_count'],
-         'category':item['category'],
-         'monthly_profit':item['profit_average'],
-         'country':item['country_name'],
-         'inserted_data':item['inserted_timestamp'],
-         
-      }
-      
-      try:dd['time_end']=item['time_end']
-      except KeyError:dd['time_end']=''
-
-      try:dd['buynow_price']=item['buy_it_now']
-      except KeyError:dd['buynow_price']=''
-      
-      data['items'].append(dd)
-
    
+   
+   countries={}
+   for i in recordsCollection.aggregate([{'$group' : { '_id' : '$country_name', 'count' : {'$sum' : 1}}},{ '$sort': { 'count': -1 }},{ '$limit' : 5 }]):
+      countries[i['_id']]=i['count']
+   data['countries_name']=list(countries.keys())
+   data['countries_value']=list(countries.values())
+   
+
+   data['items']=[]
+
+   for item in recordsCollection.find(
+      {'profit_average':{'$gt':999}},
+      {
+         'id': 1,
+         'title': 1,
+         'price': 1,
+         'category': 1,
+         'sale_method':1,
+         'profit_average': 1,
+         'monetization': 1,
+         'inserted_timestamp': 1,
+         'buy_it_now': 1,
+         'inserted_timestamp': 1,
+         'time_end': 1,
+         'country_name': 1,
+         }
+      ):
+      data['items'].append(item)
    return data
 
 if __name__ == '__main__':

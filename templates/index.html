@@ -118,90 +118,10 @@
               </div>
             </div>
           </div>
-
-          <div class="row">
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-primary shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Confidential Propertry</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{data['total_confidentials']}}</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-key fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-success shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Earnings (Annual)</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Earnings (Monthly) Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-info shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks</div>
-                      <div class="row no-gutters align-items-center">
-                        <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                        </div>
-                        <div class="col">
-                          <div class="progress progress-sm mr-2">
-                            <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pending Requests Card Example -->
-            <div class="col-xl-3 col-md-6 mb-4">
-              <div class="card border-left-warning shadow h-100 py-2">
-                <div class="card-body">
-                  <div class="row no-gutters align-items-center">
-                    <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                    </div>
-                    <div class="col-auto">
-                      <i class="fas fa-comments fa-2x text-gray-300"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- Top Cards Ends here -->
 
-          <!-- Content Row -->
 
+          <!-- Content Row -->
           <div class="row">
 
             <!-- Area Chart -->
@@ -237,31 +157,24 @@
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Countries</h6>
                   <div class="dropdown no-arrow">
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
                   </div>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
+                    <canvas id="countriesPieChart"></canvas>
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
-                      <i class="fas fa-circle text-primary"></i> Direct
+                      <i class="fas fa-circle text-primary"></i> United States
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Social
+                      <i class="fas fa-circle text-success"></i> India
                     </span>
                     <span class="mr-2">
                       <i class="fas fa-circle text-info"></i> Referral
@@ -286,35 +199,50 @@
                     <tr>
                       <th>id</th>
                       <th>Name</th>
-                      <th>Price</th>
-                      <th>Sale Method</th>
                       <th>Monthly Profit</th>
+                      <th>Price</th>
+                      <th>Buy Now Price</th>
+                      <th>Sale Method</th>
+                      <th>Category</th>
+                      <th>Monetization</th>
                       <th>Country</th>
+                      <th>Inserted Date</th>
+                      <th>End Date</th>
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                       <th>id</th>
                       <th>Name</th>
-                      <th>Price</th>
-                      <th>Sale Method</th>
                       <th>Monthly Profit</th>
+                      <th>Price</th>
+                      <th>Buy Now Price</th>
+                      <th>Sale Method</th>
                       <th>Category</th>
                       <th>Monetization</th>
                       <th>Country</th>
+                      <th>Inserted Date</th>
+                      <th>End Date</th>
                     </tr>
                   </tfoot>
                   <tbody>
                     {% for item in data['items'] %}
                       <tr>
                         <td>{{item.id}}</td>
-                        <td>{{item.name}}</td>
+                        <td>{{item.title}}</td>
+                        <td>${{item.profit_average}}</td>
                         <td>${{item.price}}</td>
+                        {% if item.buy_it_now is not none %}
+                          <td>${{item.price}}</td>
+                        {% else %}
+                          <td>N/A</td>
+                        {% endif %}
                         <td>{{item.sale_method}}</td>
-                        <td>${{item.monthly_profit}}</td>
                         <td>{{item.category}}</td>
                         <td>{{item.monetization}}</td>
-                        <td>{{item.country}}</td>
+                        <td>{{item.country_name}}</td>
+                        <td>{{item.inserted_timestamp}}</td>
+                        <td>{{item.time_end}}</td>
                       </tr>
                     {% endfor %}
                   </tbody>
@@ -512,7 +440,39 @@
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="js/demo/datatables-demo.js"></script>
-
+  <script>
+    var ctx = document.getElementById("countriesPieChart");
+    var myPieChart = new Chart(ctx, {
+      type: 'doughnut',
+      data: {
+        labels: {{data['countries_name']|safe}},
+        datasets: [{
+          data: {{data['countries_value']|safe}},
+          backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#e74a3b','#5a5c69'],
+          hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#e74a3d','#5a5c6d'],
+          hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        tooltips: {
+          backgroundColor: "rgb(255,255,255)",
+          bodyFontColor: "#858796",
+          borderColor: '#dddfeb',
+          borderWidth: 1,
+          xPadding: 15,
+          yPadding: 15,
+          displayColors: false,
+          caretPadding: 10,
+        },
+        legend: {
+          display: false
+        },
+        // cutoutPercentage: 80,
+        percentageInnerCutout: 20,
+      },
+    });
+</script>
 </body>
 
 </html>
