@@ -1,11 +1,13 @@
-from flask import Flask
-import json
+from flask import Flask,jsonify
+
 
 app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
 def wellcome():
-   return {'success':True},200,{'ContentType':'application/json'}
+   return jsonify( {'success':True})
 
 if __name__ == '__main__':
-   app.run()
+   app.run(debug=True)
+
+# 
