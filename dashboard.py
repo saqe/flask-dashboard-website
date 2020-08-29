@@ -58,11 +58,13 @@ def get_data_from_db():
          'monetization': 1,
          'inserted_timestamp': 1,
          'buy_it_now': 1,
-         'inserted_timestamp': 1,
          'time_end': 1,
          'country_name': 1,
          }
       ):
+      try:item['time_end']=item['time_end'][:10]
+      except KeyError:pass
+
       data['items'].append(item)
    return data
 

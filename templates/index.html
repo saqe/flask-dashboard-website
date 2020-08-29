@@ -250,8 +250,8 @@
                         <td>{{item.category}}</td>
                         <td>{{item.monetization}}</td>
                         <td>{{item.country_name}}</td>
-                        <td>{{item.inserted_timestamp}}</td>
-                        <td>{{item.time_end}}</td>
+                        <td nowrap>{{item.inserted_timestamp.strftime('%Y-%m-%d')}}</td>
+                        <td nowrap>{{item.time_end}}</td>                                              
                       </tr>
                     {% endfor %}
                   </tbody>
