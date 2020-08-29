@@ -35,7 +35,7 @@ def get_data_from_db():
    data={}
    data['total_ads']=recordsCollection.count_documents({'profit_average':{'$gt':999}})
    data['total_confidentials']=recordsCollection.count_documents({'property_name':'CONFIDENTIAL'})
-   
+   data['total_confidentials_per']=int((data['total_confidentials']/data['total_ads'])*100)
    
    countries={}
    for i in recordsCollection.aggregate([{'$group' : { '_id' : '$country_name', 'count' : {'$sum' : 1}}},{ '$sort': { 'count': -1 }},{ '$limit' : 5 }]):
