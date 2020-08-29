@@ -203,6 +203,7 @@
                       <th>Name</th>
                       <th>Monthly Profit</th>
                       <th>Price</th>
+                      <th>Sale/Profit</th>
                       <th>Buy Now Price</th>
                       <th>Sale Method</th>
                       <th>Category</th>
@@ -218,7 +219,9 @@
                       <th>Name</th>
                       <th>Monthly Profit</th>
                       <th>Price</th>
+                      <th>Sale/Profit</th>
                       <th>Buy Now Price</th>
+
                       <th>Sale Method</th>
                       <th>Category</th>
                       <th>Monetization</th>
@@ -234,11 +237,15 @@
                         <td>{{item.title}}</td>
                         <td>${{item.profit_average}}</td>
                         <td>${{item.price}}</td>
-                        {% if item.buy_it_now is not none %}
-                          <td>${{item.price}}</td>
+                        
+                        <td>{{(item.price/item.profit_average)|float|round(2, 'floor') }}</td>
+
+                        {% if item.buy_it_now is not none or 'buy_it_now' not in item%}
+                          <td>${{item.buy_it_now}}</td>
                         {% else %}
                           <td>N/A</td>
                         {% endif %}
+
                         <td>{{item.sale_method}}</td>
                         <td>{{item.category}}</td>
                         <td>{{item.monetization}}</td>
