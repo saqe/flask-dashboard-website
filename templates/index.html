@@ -107,8 +107,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Pending Requests</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{data['total_confidentials']}}</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Added Today</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{data['added_today']}}</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -124,55 +124,68 @@
           <!-- Content Row -->
           <div class="row">
 
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <!--
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                    -->
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
+            <div class="col-xl-3 col-md-4">
               <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary">Countries</h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                  </div>
+                  <h6 class="m-0 font-weight-bold text-primary">Sales Methods</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <canvas id="countriesPieChart"></canvas>
+                    <canvas id="salesMethodsChart"></canvas>
                   </div>
                 </div>
               </div>
+            </div>
+            <div class="col-xl-6 col-md-8">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Categories</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="categoriesChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-md-4">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Countries</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="countriesChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 d-md-none">
+              .
+            </div>
+            <div class="col-xl-6 col-md-8 ">
+              <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                  <h6 class="m-0 font-weight-bold text-primary">Monetization</h6>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                  <div class="chart-pie pt-4 pb-2">
+                    <canvas id="monetizationChart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 d-md-none">
+              .
             </div>
           </div>
 
@@ -210,7 +223,6 @@
                       <th>Price</th>
                       <th>Sale/Profit</th>
                       <th>Buy Now Price</th>
-
                       <th>Sale Method</th>
                       <th>Category</th>
                       <th>Monetization</th>
@@ -264,25 +276,6 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -302,14 +295,14 @@
   <script src="vendor/datatables/jquery.dataTables.min.js"></script>
   <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
   <script src="js/demo/datatables-demo.js"></script>
+
   <script>
-    var ctx = document.getElementById("countriesPieChart");
-    var myPieChart = new Chart(ctx, {
+    new Chart(document.getElementById("salesMethodsChart"), {
       type: 'doughnut',
       data: {
-        labels: {{data['countries_name']|safe}},
+        labels: {{data['salesMethod_name']|safe}},
         datasets: [{
-          data: {{data['countries_value']|safe}},
+          data: {{data['salesMethod_value']|safe}},
           backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#e74a3b','#5a5c69'],
           hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#e74a3d','#5a5c6d'],
           hoverBorderColor: "rgba(234, 236, 244, 1)",
@@ -334,6 +327,112 @@
         percentageInnerCutout: 20,
       },
     });
+
+    // new Chart(document.getElementById("categoriesChart"), {
+    //   type: 'doughnut',
+    //   data: {
+    //     labels: {{data['categories_name']|safe}},
+    //     datasets: [{
+    //       data: {{data['categories_value']|safe}},
+    //       backgroundColor: ['#5352ed','#f1c40f','#16a085','#2980b9','#ecf0f1','#2ecc71', '#1cc88a', '#36b9cc','#8e44ad','#e74a3b','#5a5c69'],
+    //       hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#e74a3d','#2e59d9','#5a5c6d', '#17a673', '#2c9faf','#e74a3d','#5a5c6d'],
+    //       hoverBorderColor: "rgba(234, 236, 244, 1)",
+    //     }],
+    //   },
+    //   options: {
+    //     maintainAspectRatio: false,
+    //     tooltips: {
+    //       backgroundColor: "rgb(255,255,255)",
+    //       bodyFontColor: "#858796",
+    //       borderColor: '#dddfeb',
+    //       borderWidth: 1,
+    //       xPadding: 15,
+    //       yPadding: 15,
+    //       displayColors: false,
+    //       caretPadding: 10,
+    //     },
+    //     legend: {
+    //       display: true
+    //     },
+    //     // cutoutPercentage: 80,
+    //     percentageInnerCutout: 20,
+    //   },
+    // });
+
+    new Chart(document.getElementById("categoriesChart"),{
+      type:"bar",
+      data: {
+        labels:{{data['categories_name']|safe}},
+        datasets:[{
+          data:{{data['categories_value']|safe}},
+          fill:false,
+          backgroundColor: ['#5352ed','#f1c40f','#16a085','#2980b9','#ecf0f1','#2ecc71', '#1cc88a', '#36b9cc','#8e44ad','#e74a3b','#5a5c69'],
+          borderWidth:1
+        }]
+      },
+        options:{
+          legend: {
+            display: false
+          }
+        }
+      });
+    
+    new Chart(document.getElementById("countriesChart"), {
+      type: 'doughnut',
+      data: {
+        labels: {{data['countries_name']|safe}},
+        datasets: [{
+          data: {{data['countries_value']|safe}},
+          backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc','#e74a3b','#5a5c69'],
+          hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#e74a3d','#5a5c6d'],
+          hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        tooltips: {
+          backgroundColor: "rgb(255,255,255)",
+          bodyFontColor: "#858796",
+          borderColor: '#dddfeb',
+          borderWidth: 1,
+          xPadding: 15,
+          yPadding: 15,
+          displayColors: false,
+          caretPadding: 10,
+        },
+        legend: {display: true},
+        percentageInnerCutout: 20,
+      },
+    });
+
+    new Chart(document.getElementById("monetizationChart"), {
+      type: 'doughnut',
+      data: {
+        labels: {{data['monetization_name']|safe}},
+        datasets: [{
+          data: {{data['monetization_value']|safe}},
+          backgroundColor: ['#5352ed','#f1c40f','#16a085','#2980b9','#ecf0f1','#2ecc71', '#1cc88a', '#36b9cc','#8e44ad','#e74a3b','#5a5c69'],
+          hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf','#e74a3d','#2e59d9','#5a5c6d', '#17a673', '#2c9faf','#e74a3d','#5a5c6d'],
+          hoverBorderColor: "rgba(234, 236, 244, 1)",
+        }],
+      },
+      options: {
+        maintainAspectRatio: false,
+        tooltips: {
+          backgroundColor: "rgb(255,255,255)",
+          bodyFontColor: "#858796",
+          borderColor: '#dddfeb',
+          borderWidth: 1,
+          xPadding: 15,
+          yPadding: 15,
+          displayColors: false,
+          caretPadding: 10,
+        },
+        legend: {display: true},
+        percentageInnerCutout: 20,
+      },
+    });
+
   </script>
 </body>
 

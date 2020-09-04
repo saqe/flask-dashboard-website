@@ -1,6 +1,7 @@
 from flask import Flask,jsonify,render_template,send_from_directory
 import os
 import pymongo
+from datetime import datetime
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -36,13 +37,34 @@ def get_data_from_db():
    data['total_ads']=recordsCollection.count_documents({'profit_average':{'$gt':999}})
    data['total_confidentials']=recordsCollection.count_documents({'property_name':'CONFIDENTIAL'})
    data['total_confidentials_per']=int((data['total_confidentials']/data['total_ads'])*100)
+   date=datetime.now()
+   data['updated_today']=recordsCollection.count_documents({"last_updated": {"$gte": datetime(date.year,date.month,date.day)}})
+   data['added_today']=recordsCollection.count_documents({"inserted_timestamp": {"$gte": datetime(date.year,date.month,date.day)}})
    
-   countries={}
-   for i in recordsCollection.aggregate([{'$group' : { '_id' : '$country_name', 'count' : {'$sum' : 1}}},{ '$sort': { 'count': -1 }},{ '$limit' : 5 }]):
-      countries[i['_id']]=i['count']
-   data['countries_name']=list(countries.keys())
-   data['countries_value']=list(countries.values())
+   d={}
+   for x in recordsCollection.aggregate([{'$group' : { '_id' : '$sale_method', 'count' : {'$sum' : 1}}},{ '$sort': { 'count': -1 }},{ '$limit' : 3 }]):
+      d[x['_id']]=x['count']   
+   data['salesMethod_name']=list(d.keys())
+   data['salesMethod_value']=list(d.values())
+
+   d={}
+   for x in recordsCollection.aggregate([{'$group' : { '_id' : '$category', 'count' : {'$sum' : 1}}},{ '$sort': { 'count': -1 }},{ '$limit' : 10 }]):
+      d[x['_id']]=x['count']
+   data['categories_name']=list(d.keys())
+   data['categories_value']=list(d.values())
+
+   d={}
+   for x in recordsCollection.aggregate([{'$group' : { '_id' : '$country_name', 'count' : {'$sum' : 1}}},{ '$sort': { 'count': -1 }},{ '$limit' : 5 }]):
+      d[x['_id']]=x['count']
+   data['countries_name']=list(d.keys())
+   data['countries_value']=list(d.values())
    
+   d={}
+   for x in recordsCollection.aggregate([{'$group' : { '_id' : '$monetization', 'count' : {'$sum' : 1}}},{ '$sort': { 'count': -1 }},{ '$limit' : 10 }]):
+      if x['_id'] is None:x['_id']='N/A'
+      d[x['_id']]=x['count']   
+   data['monetization_name']=list(d.keys())
+   data['monetization_value']=list(d.values())
 
    data['items']=[]
 
