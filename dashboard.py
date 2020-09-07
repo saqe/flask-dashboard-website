@@ -1,14 +1,15 @@
 from flask import Flask,jsonify,render_template,send_from_directory
+from flask_compress import Compress
 import os
 import pymongo
 from datetime import datetime
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 
 
 app = Flask(__name__)
-
+Compress(app)
 @app.route('/js/<path:path>')
 def send_js(path):
     return send_from_directory('js', path)
@@ -91,5 +92,5 @@ def get_data_from_db():
    return data
 
 if __name__ == '__main__':
-   app.run(debug=True)
+   app.run()
 
