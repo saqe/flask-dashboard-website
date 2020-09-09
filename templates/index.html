@@ -17,7 +17,13 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <script>
+    $(document).ready(function() {
+      $('#dataTable').DataTable();
+      $('#dataTable_paginate').addClass('float-right');
+      $('#dataTable_filter').addClass('float-right');
+    });
+  </script>
 </head>
 
 <body id="page-top">
@@ -306,11 +312,7 @@
   <!-- <script src="js/demo/datatables-demo.js"></script> -->
 
   <script>
-    $(document).ready(function() {
-      $('#dataTable').DataTable();
-      $('#dataTable_paginate').addClass('float-right');
-      $('#dataTable_filter').addClass('float-right');
-    });
+    
 
     new Chart(document.getElementById("salesMethodsChart"), {
       type: 'doughnut',
