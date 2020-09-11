@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/png" href="https://img.icons8.com/nolan/64/web-analystics.png">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Saqib">
+
+  <title>Profile - {{data['id']}}</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+          <!-- Main Content -->
+          <div id="content mt-4">
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+              <!-- Page Heading -->
+              <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h1 class="h3 mb-0 mt-4 text-gray-800">{{data['title']}}</h1>
+              </div>
+              {% if data['property_name']=='CONFIDENTIAL' %}
+                <div class="alert alert-warning alert-icon mb-4" role="alert">
+                  <div class="alert-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-triangle"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+                  <div class="alert-icon-content"> <h5 class="alert-heading">Confidential Listing</h5> </div>
+                </div>
+              {% endif %}
+              
+              <!-- Content Row -->
+              <!-- Top Cards -->
+              <div class="row">
+                <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card bg-primary text-white border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-white-75 mb-1">Price</div>
+                          <div class="h5 mb-0 font-weight-bold">${{data['price']}}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-server fa-2x text-gray-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card bg-success text-white h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-white-75 mb-1">Monthly Profit</div>
+                          <div class="h5 mb-0 font-weight-bold">${{data['profit_average']}}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-server fa-2x text-white-50"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card bg-info text-white shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-white-75 mb-1">monetization</div>
+                          <div class="h5 mb-0 font-weight-bold">{{data['monetization']}}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-server fa-2x text-white-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-3 col-md-6 mb-4">
+                  <div class="card bg-danger text-white shadow h-100 py-2">
+                    <div class="card-body">
+                      <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                          <div class="text-xs font-weight-bold text-white-75 mb-1">Country</div>
+                          <div class="h5 mb-0 font-weight-bold">{{data['country_name']}}</div>
+                        </div>
+                        <div class="col-auto">
+                          <i class="fas fa-server fa-2x text-white-300"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Top Cards Ends here -->
+    
+    
+              <!-- Content Row -->
+              <div class="row">
+                <div class="col-xl-4">
+                  <div class="card shadow mb-4">
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <table class="table table-bordered" width="100%">
+                            <tbody>
+                                <tr><td><dt>id</dt></td>                    <td><dd>{{data['id']}}</dd></td></tr>
+                                <tr><td><dt>Category</dt></td>              <td><dd>{{data['category']}}</dd></td></tr>
+                                <tr><td><dt>Monetization</dt></td>          <td><dd>{{data['monetization']}}</dd></td></tr>
+                                <tr><td><dt>Sale Method</dt></td>           <td><dd>{{data['sale_method']}}</dd></td></tr>
+                                <tr><td><dt>country</dt></td>               <td><dd>{{data['country_name']}}</dd></td></tr>
+                                
+                                <tr><td><dt>Verified Traffic</dt></td>      <td><dd>{{data['has_verified_traffic']}}</dd></td></tr>
+                                <tr><td><dt>multiple</dt></td>              <td><dd>{{data['multiple']}}</dd></td></tr>
+                                <tr><td><dt>domain_tld</dt></td>            <td><dd>{{data['domain_tld']}}</dd></td></tr>
+                                <tr><td><dt>inserted At</dt></td>           <td><dd>{{data['inserted_timestamp']}}</dd></td></tr>
+                                <tr><td><dt>Time Remaining</dt></td>        <td><dd>{{data['time_remaining']}}</dd></td></tr>
+                                <tr><td><dt>watchers_count</dt></td>        <td><dd>{{data['watchers_count']}}</dd></td></tr>
+                            </tbody>
+                          </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xl-8">
+                  <div class="card shadow mb-4">
+                    <img class="img-fluid" src="{{data['screenshot_url_listing_hero']}}">
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="card shadow mb-4">
+                  <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Description</h6>
+                  </div>
+                  <div class="card-body">
+                    {{data['profile_detail']['post-description']}}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table -->
+              <!-- DataTales Example -->
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Records</h6>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                      <thead>
+                        <tr>
+                          <th>id</th>
+                          <th>Name</th>
+                          <th>Monthly Profit</th>
+                          <th>Price</th>
+                        </tr>
+                      </thead>
+                      <tfoot>
+                        <tr>
+                          <th>id</th>
+                          <th>Name</th>
+                          <th>Monthly Profit</th>
+                          <th>Price</th>
+                        </tr>
+                      </tfoot>
+                      <tbody>
+                          <tr>
+                            <td><a target="_blank" rel="nofollow" href="">sw</a></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- /.container-fluid -->
+        </div>
+          <!-- End of Main Content -->
+    </div>
+    <!-- End of Content Wrapper -->
+      
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <script src="../js/sb-admin-2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#dataTable').DataTable();
+      $('#dataTable_paginate').addClass('float-right');
+      $('#dataTable_filter').addClass('float-right');
+    });
+  </script>
+</body>
+
+</html>
