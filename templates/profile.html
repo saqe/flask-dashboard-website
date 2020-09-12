@@ -39,13 +39,12 @@
               <!-- Content Row -->
               <!-- Top Cards -->
               <div class="row">
-                <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card bg-primary text-white border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-white-75 mb-1">Price</div>
+                          <div class="text-sm font-weight-bold text-white-75 mb-1">Price</div>
                           <div class="h5 mb-0 font-weight-bold">${{data['price']}}</div>
                         </div>
                         <div class="col-auto">
@@ -60,11 +59,11 @@
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-white-75 mb-1">Monthly Profit</div>
+                          <div class="text-sm font-weight-bold text-white-75 mb-1">Monthly Profit</div>
                           <div class="h5 mb-0 font-weight-bold">${{data['profit_average']}}</div>
                         </div>
                         <div class="col-auto">
-                          <i class="fas fa-server fa-2x text-white-50"></i>
+                          <i class="fas fa-server fa-2x text-white-300"></i>
                         </div>
                       </div>
                     </div>
@@ -75,7 +74,7 @@
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-white-75 mb-1">monetization</div>
+                          <div class="text-sm font-weight-bold text-white-75 mb-1">Monetization</div>
                           <div class="h5 mb-0 font-weight-bold">{{data['monetization']}}</div>
                         </div>
                         <div class="col-auto">
@@ -90,7 +89,7 @@
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-white-75 mb-1">Country</div>
+                          <div class="text-sm font-weight-bold text-white-75 mb-1">Country</div>
                           <div class="h5 mb-0 font-weight-bold">{{data['country_name']}}</div>
                         </div>
                         <div class="col-auto">
@@ -114,15 +113,15 @@
                             <tbody>
                                 <tr><td><dt>id</dt></td>                    <td><dd>{{data['id']}}</dd></td></tr>
                                 <tr><td><dt>Category</dt></td>              <td><dd>{{data['category']}}</dd></td></tr>
-                                <tr><td><dt>Monetization</dt></td>          <td><dd>{{data['monetization']}}</dd></td></tr>
+                                <!-- <tr><td><dt>Monetization</dt></td>          <td><dd>{{data['monetization']}}</dd></td></tr> -->
                                 <tr><td><dt>Sale Method</dt></td>           <td><dd>{{data['sale_method']}}</dd></td></tr>
-                                <tr><td><dt>country</dt></td>               <td><dd>{{data['country_name']}}</dd></td></tr>
+                                <!-- <tr><td><dt>Country</dt></td>               <td><dd>{{data['country_name']}}</dd></td></tr> -->
                                 
                                 <tr><td><dt>Verified Traffic</dt></td>      <td><dd>{{data['has_verified_traffic']}}</dd></td></tr>
-                                <tr><td><dt>multiple</dt></td>              <td><dd>{{data['multiple']}}</dd></td></tr>
-                                <tr><td><dt>domain_tld</dt></td>            <td><dd>{{data['domain_tld']}}</dd></td></tr>
+                                <tr><td><dt>Multiple</dt></td>              <td><dd>{{data['multiple']}}</dd></td></tr>
+                                <!-- <tr><td><dt>domain_tld</dt></td>            <td><dd>{{data['domain_tld']}}</dd></td></tr> -->
                                 <tr><td><dt>inserted At</dt></td>           <td><dd>{{data['inserted_timestamp']}}</dd></td></tr>
-                                <tr><td><dt>Time Remaining</dt></td>        <td><dd>{{data['time_remaining']}}</dd></td></tr>
+                                <!-- <tr><td><dt>Time Remaining</dt></td>        <td><dd>{{data['time_remaining']}}</dd></td></tr> -->
                                 <tr><td><dt>watchers_count</dt></td>        <td><dd>{{data['watchers_count']}}</dd></td></tr>
                             </tbody>
                           </table>
@@ -136,14 +135,12 @@
                 </div>
               </div>
 
-              <div class="row">
-                <div class="card shadow mb-4">
-                  <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Description</h6>
-                  </div>
-                  <div class="card-body">
-                    {{data['profile_detail']['post-description']}}
-                  </div>
+              <div class="card shadow mb-4">
+                <div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">Description</h6>
+                </div>
+                <div class="card-body">
+                  {{ data['profile_detail']['post-description-html'] | safe }}
                 </div>
               </div>
 
