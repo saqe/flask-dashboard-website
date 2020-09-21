@@ -130,7 +130,7 @@
                 </div>
                 <div class="col-xl-8">
                   <div class="card shadow mb-4">
-                    <img class="img-fluid" src="{{data['screenshot_url_listing_hero']}}">
+                  <img class="img-fluid" src="{{data['screenshot_url_listing_hero']}}" onerror="this.this.src='{{data['']}}''">
                   </div>
                 </div>
               </div>
@@ -140,7 +140,9 @@
                   <h6 class="m-0 font-weight-bold text-primary">Description</h6>
                 </div>
                 <div class="card-body">
-                  {{ data['profile_detail']['post-description-html'] | safe }}
+                  {% if data['profile_detail'] != None%}
+                    {{ data['profile_detail']['post-description-html'] | safe }}
+                  {% endif %}
                 </div>
               </div>
 
