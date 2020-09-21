@@ -26,8 +26,9 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
               <!-- Page Heading -->
-              <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <div class="align-items-center justify-content-between mb-4">
                 <h1 class="h3 mb-0 mt-4 text-gray-800">{{data['title']}}</h1>
+                <h5 class="h5 mb-0 text-gray-800">{{data['summary']}}</h5>
               </div>
               {% if data['property_name']=='CONFIDENTIAL' %}
                 <div class="alert alert-warning alert-icon mb-4" role="alert">
@@ -134,7 +135,8 @@
                   </div>
                 </div>
               </div>
-
+              
+              <!-- Description -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Description</h6>
@@ -145,47 +147,144 @@
                   {% endif %}
                 </div>
               </div>
-
-              <!-- Table -->
-              <!-- DataTales Example -->
+              
+              <!-- At galance -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Records</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">At a glance</h6>
                 </div>
                 <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>id</th>
-                          <th>Name</th>
-                          <th>Monthly Profit</th>
-                          <th>Price</th>
-                        </tr>
-                      </thead>
-                      <tfoot>
-                        <tr>
-                          <th>id</th>
-                          <th>Name</th>
-                          <th>Monthly Profit</th>
-                          <th>Price</th>
-                        </tr>
-                      </tfoot>
-                      <tbody>
-                          <tr>
-                            <td><a target="_blank" rel="nofollow" href="">sw</a></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                      </tbody>
-                    </table>
+                  <div class="row">
+                    <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card bg-primary text-white border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-sm font-weight-bold text-white-75 mb-1">Site Type</div>
+                              <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['site_type']}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card bg-success text-white h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-sm font-weight-bold text-white-75 mb-1">Platform</div>
+                              <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['platform']}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card bg-info text-white shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-sm font-weight-bold text-white-75 mb-1">Site age</div>
+                              <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['site_age']}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card bg-danger text-white shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-sm font-weight-bold text-white-75 mb-1">Net Profit</div>
+                              <div class="h5 mb-0 font-weight-bold">${{data['profit_average']}}</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <!-- Trafic & Financials -->
+              <div class="row">
+                <!-- Trafic -->
+                <div class="col-md-6 mb-4"> 
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Traffic</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="card bg-primary text-white border-left-primary shadow h-100 py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                  <div class="text-sm font-weight-bold text-white-75 mb-1">Page Views</div>
+                                  <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['page_views']}}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card bg-success text-white h-100 py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                  <div class="text-sm font-weight-bold text-white-75 mb-1">Unique Visits</div>
+                                  <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['unique_visits']}}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Financials -->
+                <div class="col-md-6 mb-4"> 
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Financials</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="card bg-danger text-white shadow h-100 py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                  <div class="text-sm font-weight-bold text-white-75 mb-1">Gross Revenue</div>
+                                  <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['gross_revenue']}}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="card bg-info text-white h-100 py-2">
+                            <div class="card-body">
+                              <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                  <div class="text-sm font-weight-bold text-white-75 mb-1">Ad Sense Revenue</div>
+                                  <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['ad_sense_revenue']}}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
-            <!-- /.container-fluid -->
         </div>
           <!-- End of Main Content -->
     </div>
