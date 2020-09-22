@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="../css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -148,62 +149,90 @@
                 </div>
               </div>
               
-              <!-- At galance -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">At a glance</h6>
-                </div>
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card bg-primary text-white border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                          <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                              <div class="text-sm font-weight-bold text-white-75 mb-1">Site Type</div>
-                              <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['site_type']}}</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+              <!-- At galance & Profile -->
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card shadow mb-4">  
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">At a glance</h6>
                     </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card bg-success text-white h-100 py-2">
-                        <div class="card-body">
-                          <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                              <div class="text-sm font-weight-bold text-white-75 mb-1">Platform</div>
-                              <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['platform']}}</div>
+                    <div class="card-body">
+                        <div class="row">
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card bg-purple text-white shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-sm font-weight-bold text-white-75 mb-1">Site Type</div>
+                                    <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['site_type']}}</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card bg-dark text-white h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-sm font-weight-bold text-white-75 mb-1">Platform</div>
+                                    <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['platform']}}</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card bg-info text-white shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-sm font-weight-bold text-white-75 mb-1">Site age</div>
+                                    <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['site_age']}}</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card bg-danger text-white shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row no-gutters align-items-center">
+                                  <div class="col mr-2">
+                                    <div class="text-sm font-weight-bold text-white-75 mb-1">Net Profit</div>
+                                    <div class="h5 mb-0 font-weight-bold">${{data['profit_average']}}</div>
+                                  </div>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card bg-info text-white shadow h-100 py-2">
-                        <div class="card-body">
-                          <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                              <div class="text-sm font-weight-bold text-white-75 mb-1">Site age</div>
-                              <div class="h5 mb-0 font-weight-bold">{{data['profile_detail']['site_age']}}</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card bg-danger text-white shadow h-100 py-2">
-                        <div class="card-body">
-                          <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                              <div class="text-sm font-weight-bold text-white-75 mb-1">Net Profit</div>
-                              <div class="h5 mb-0 font-weight-bold">${{data['profit_average']}}</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
+                </div>
+              
+                <!-- Profile -->
+                <div class="col-md-4">
+                  <div id="profile"> 
+                    <div class="card shadow mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Profile</h6>
+                      </div>
+                      <div class="card-body">
+                        <table>
+                          <tbody>
+                            <tr><td><dt>Seller Name</dt></td><td><dd>{{data['profile_detail']['seller']['Name']}}</dd></td></tr>
+                            <tr><td><dt>Seller Name</dt></td><td><dd>{{data['profile_detail']['seller']['Location']}}</dd></td></tr>
+                            <tr><td colspan="2"><dt>Verfication</dt></td></tr>
+                            <tr><td><dt>Email address</dt></td><td><dd>{{data['profile_detail']['seller']['Email address']}}</dd></td></tr>
+                            <tr><td><dt>Phone Number</dt></td><td><dd>{{data['profile_detail']['seller']['Phone Number']}}</dd></td></tr>
+                            <tr><td><dt>Government ID</dt></td><td><dd>{{data['profile_detail']['seller']['Government ID']}}</dd></td></tr>
+                          </tbody>
+                        </table>
+                        <a role="button" class="btn btn-primary" href="{{data['profile_detail']['seller']['profile_link']}}">View Profile</a>
+                      </div>
+                    </div>
+                  </div> 
                 </div>
               </div>
 
@@ -282,7 +311,33 @@
                   </div>
                 </div>
               </div>
+              
 
+              <div class="row">
+                <!-- Attachments -->
+                <div class="col-md-6 mb-4"> 
+                  <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Attachments</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <ul id="attachments">
+                          {%for attach in data['profile_detail']['attachments']%}
+                              <li> 
+                                <h6 class="h6 attachment_name mb-0">
+                                  {{attach['title']}}
+                                </h6> 
+                                <strong class="text-success">{{attach['filetype']}}</strong> :  <a class='text-primary' href="{{attach['link']}}">{{attach['filename']}}</a>
+                              </li>
+                          {%endfor%}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                
             </div>
           </div>
         </div>
